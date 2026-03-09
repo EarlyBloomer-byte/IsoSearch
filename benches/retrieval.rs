@@ -1,14 +1,17 @@
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
+#![allow(missing_docs, clippy::pedantic, clippy::nursery)]
+//! Retrieval benchmark suite for IsoSearch.
+
+use criterion::{Criterion, black_box, criterion_group, criterion_main};
 
 /// Template for benchmarking the search pipeline.
-fn bench_retrieval_latency(c: &mut Criterion) {
+pub fn bench_retrieval_latency(c: &mut Criterion) {
     // TODO: Initialize your index here once implemented
-    
+
     c.bench_function("placeholder_retrieval", |b| {
         b.iter(|| {
             // Simulate a search operation
             black_box(1 + 1);
-        })
+        });
     });
 }
 
