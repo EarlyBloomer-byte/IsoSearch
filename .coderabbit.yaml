@@ -1,0 +1,33 @@
+# CodeRabbit Configuration (2026 Edition)
+# See: https://docs.coderabbit.ai/getting-started/yaml-configuration
+
+version: "1.0"
+
+language: "rust"
+
+review:
+  profile: "chill" # Options: chill, assertive, obsessive
+  level: "pedantic"
+  high_level_summary: true
+  auto_review_label: "ai-reviewed"
+  
+  # Custom instructions for the AI reviewer
+  instructions: |
+    - Focus on performance optimizations for a sub-millisecond retrieval engine.
+    - Check for memory safety and potential bottlenecks in hot paths.
+    - Verify that SIMD (AVX-512/NEON) intrinsics are used correctly where applicable.
+    - Ensure strict adherence to the Rust 2024 edition patterns.
+    - Flag any use of 'unsafe' that lacks a documented safety justification.
+    - Monitor for large heap allocations that might exceed the 1GB index constraint.
+    - Suggest zero-copy optimizations (e.g., using 'rkyv' patterns).
+
+chat:
+  enabled: true
+
+knowledge_base:
+  enabled: true
+  
+# Automated PR description generation
+description:
+  generate: true
+  format: "markdown"
