@@ -142,7 +142,7 @@ Every technical stage defined in the **Architectural Pipeline Overview** (Steps 
 For the initial hardware micro-benchmarks regarding execution latency and $O(1)/O(\log N)$ scalability observations compared to traditional "General RAG" systems, please consult the [Technical Analysis & Benchmarks](./technical_analysis.md) report.
 
 ### Current Focus: Phase 5 — Recall Evaluation & Accuracy Tuning
-We are currently shifting focus from pure systems optimization to **mathematical verification**. The goal is to prove that our aggressively quantized Hamming search maintains high semantic fidelity.
+We are currently shifting focus from pure systems optimization to **mathematical verification**. The goal is to prove that our aggressively quantized Hamming search maintains high semantic fidelity. For the detailed experimental design and research metrics, see the [Benchmarking V2 Framework](./benchmarking_v2.md).
 
 1.  **Recall Fidelity (Accuracy Tradeoffs)**:
     *   **Task**: Integrate a real-world benchmark dataset (e.g., **MS MARCO** or **SQuAD**) using the `HuggingFaceEmbedder`.
