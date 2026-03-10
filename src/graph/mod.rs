@@ -142,7 +142,7 @@ impl HNSWGraph {
     #[allow(clippy::cast_ptr_alignment)]
     pub unsafe fn hamming_distance_avx2(a: &[u64], b: &[u64]) -> u32 {
         use std::arch::x86_64::{
-            _mm_add_epi64, _mm_extract_epi64, _mm256_add_epi64, _mm256_and_si256,
+            _mm_add_epi64, _mm_extract_epi64, _mm256_add_epi8, _mm256_add_epi64, _mm256_and_si256,
             _mm256_castsi256_si128, _mm256_extracti128_si256, _mm256_loadu_si256, _mm256_sad_epu8,
             _mm256_set1_epi8, _mm256_setr_epi8, _mm256_setzero_si256, _mm256_shuffle_epi8,
             _mm256_srli_epi16, _mm256_xor_si256,
