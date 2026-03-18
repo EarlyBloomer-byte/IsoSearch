@@ -19,7 +19,7 @@ All benchmarks were executed locally on consumer hardware to establish a baselin
 
 ---
 
-## IsoSearch Architecture Pipeline Diagram
+## IsoSearch Architecture Pipeline
 
 ```mermaid
 flowchart TD
