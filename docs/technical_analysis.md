@@ -17,27 +17,27 @@ flowchart LR
 %% OFFLINE COLUMN
 subgraph OFFLINE [Offline Indexing Pipeline]
 direction TB
-A1[Raw Embeddings]
-A1 --> B1[Geometric Normalization]
-B1 --> B1a[Whitening / Poincare]
-B1a --> C1[Quantization]
-C1 --> D1[Bucket Assignment]
-D1 --> E1[Store Buckets]
-E1 --> F1[HNSW Build]
-F1 --> G1[Index Stored]
+A1["<br/>Raw<br/>Embeddings<br/>"]
+A1 --> B1["<br/>Geometric<br/>Normalization<br/>"]
+B1 --> B1a["<br/>Whitening /<br/>Poincare<br/>"]
+B1a --> C1["<br/>Quantization<br/>"]
+C1 --> D1["<br/>Bucket<br/>Assignment<br/>"]
+D1 --> E1["<br/>Store<br/>Buckets<br/>"]
+E1 --> F1["<br/>HNSW<br/>Build<br/>"]
+F1 --> G1["<br/>Index<br/>Stored<br/>"]
 end
 
 %% ONLINE COLUMN
 subgraph ONLINE [Online Query Pipeline]
 direction TB
-A2[Query Vector]
-A2 --> B2[Same Normalization]
-B2 --> B2a[Whitening / Poincare]
-B2a --> C2[Bucket Assignment]
-C2 --> D2[Bucket Filtering]
-D2 --> E2[HNSW Search]
-E2 --> F2[Distance Compute]
-F2 --> G2[Top-K Results]
+A2["<br/>Query<br/>Vector<br/>"]
+A2 --> B2["<br/>Same<br/>Normalization<br/>"]
+B2 --> B2a["<br/>Whitening /<br/>Poincare<br/>"]
+B2a --> C2["<br/>Bucket<br/>Assignment<br/>"]
+C2 --> D2["<br/>Bucket<br/>Filtering<br/>"]
+D2 --> E2["<br/>HNSW<br/>Search<br/>"]
+E2 --> F2["<br/>Distance<br/>Compute<br/>"]
+F2 --> G2["<br/>Top-K<br/>Results<br/>"]
 end
 
 %% CONNECTION BETWEEN COLUMNS
