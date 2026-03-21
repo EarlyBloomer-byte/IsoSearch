@@ -37,7 +37,7 @@ sudo apt-get install libopenblas-dev gfortran
 
 **Windows (via WSL2 — Recommended):**
 
-1. Open **PowerShell or Command Prompt as Administrator** and run:
+1. Open **PowerShell as Administrator** and run:
 ```powershell
    wsl --install -d Ubuntu
 ```
@@ -50,8 +50,37 @@ sudo apt-get install libopenblas-dev gfortran
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    source $HOME/.cargo/env
 ```
+   To make sure path resolves correctly, set this:
+```bash
+   export OPENBLAS_DIR=/usr/lib/$(dpkg-architecture -qDEB_HOST_MULTIARCH)
+```
+   You can persist it:
+```bash
+   echo 'export OPENBLAS_DIR=/usr/lib/$(dpkg-architecture -qDEB_HOST_MULTIARCH)' >> ~/.bashrc
+```
 
-> **Note:** Always work from your Linux home directory (`cd ~`) inside WSL. If `wsl --install` fails, ensure **Virtualization** is enabled in your BIOS (Task Manager → Performance → CPU → Virtualization: Enabled).
+> **Note:** Always work from your Linux home directory (`cd ~`) inside WSL, not from `/mnt/c/...`. If `wsl --install` fails, ensure **Virtualization** is enabled in your BIOS (Task Manager → Performance → CPU → Virtualization: Enabled).
+
+---
+
+## Installation & Usage
+
+1. **Clone the repository and install toolchains:**
+```bash
+   git clone https://github.com/itisrohit/IsoSearch.git
+   cd IsoSearch
+   make setup
+```
+
+2. **Build the optimized engine:**
+```bash
+   cargo build --release
+```
+
+3. **Run the simulation pipeline:**
+```bash
+   cargo run
+```
 
 ---
 
