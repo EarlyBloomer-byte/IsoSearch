@@ -1,0 +1,50 @@
+On OLD
+
+Gnuplot not found, using plotters backend
+Benchmarking normalize_and_project
+Benchmarking normalize_and_project: Warming up for 3.0000 s
+Benchmarking normalize_and_project: Collecting 100 samples in estimated 5.0086 s (338k iterations)
+Benchmarking normalize_and_project: Analyzing
+normalize_and_project   time:   [13.788 µs 14.627 µs 15.830 µs]
+Found 6 outliers among 100 measurements (6.00%)
+  3 (3.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking hash_and_quantize
+Benchmarking hash_and_quantize: Warming up for 3.0000 s
+Benchmarking hash_and_quantize: Collecting 100 samples in estimated 5.0007 s (5.8M iterations)
+Benchmarking hash_and_quantize: Analyzing
+hash_and_quantize       time:   [864.05 ns 869.14 ns 873.94 ns]
+Found 6 outliers among 100 measurements (6.00%)
+  6 (6.00%) high mild
+Benchmarking bucket_intersection
+Benchmarking bucket_intersection: Warming up for 3.0000 s
+
+Benchmarking bucket_intersection: Collecting 100 samples in estimated 5.0096 s (2.1M iterations)
+Benchmarking bucket_intersection: Analyzing
+bucket_intersection     time:   [2.3317 µs 2.3418 µs 2.3529 µs]
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+Benchmarking hnsw_traversal
+Benchmarking hnsw_traversal: Warming up for 3.0000 s
+
+Benchmarking hnsw_traversal: Collecting 100 samples in estimated 5.0845 s (152k iterations)
+Benchmarking hnsw_traversal: Analyzing
+hnsw_traversal          time:   [33.552 µs 33.602 µs 33.655 µs]
+Found 13 outliers among 100 measurements (13.00%)
+  2 (2.00%) low mild
+  4 (4.00%) high mild
+  7 (7.00%) high severe
+
+Benchmarking naive_flat_search
+Benchmarking naive_flat_search: Warming up for 3.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 9.7s, enable flat sampling, or reduce sample count to 50.
+Benchmarking naive_flat_search: Collecting 100 samples in estimated 9.7308 s (5050 iterations)
+Benchmarking naive_flat_search: Analyzing
+naive_flat_search       time:   [1.9152 ms 1.9237 ms 1.9333 ms]
+Found 14 outliers among 100 measurements (14.00%)
+  6 (6.00%) high mild
+  8 (8.00%) high severe
+

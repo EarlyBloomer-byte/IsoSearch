@@ -14,6 +14,10 @@ pub fn bench_retrieval_latency(c: &mut Criterion) {
     let dim = 384;
     let target_dim = 128;
 
+    // Deterministic graph parameters (for stable, repeatable benchmarks).
+    const N_NODES: u64 = 10_000;
+    const DEGREE: u64 = 32;
+
     // We mock a query
     let query_raw = Array1::from_elem(dim, 0.1);
 
@@ -37,21 +41,34 @@ pub fn bench_retrieval_latency(c: &mut Criterion) {
         &hasher.hash(&random_proj.project(&poincare.project(&normalizer.normalize(&query_raw)))),
     );
 
-    // Seed intersection and graph logic
-    for i in 0..10_000 {
+    // Seed intersection and graph logic.
+    //
+    // IMPORTANT: We populate deterministic, fixed-degree level-0 neighbors so that
+    // `hnsw_traversal` actually exercises adjacency iteration (and therefore
+    // stresses the neighbor representation when comparing old vs new layouts).
+    //
+    // Pattern: node i connects to the next `DEGREE` nodes in a ring.
+    for i in 0..N_NODES {
         if let Some(&primary_hash) = query_hashed.first() {
             index.insert(primary_hash, i);
         }
+
+        let mut level0 = Vec::with_capacity(DEGREE as usize);
+        for j in 1..=DEGREE {
+            level0.push((i + j) % N_NODES);
+        }
+
         graph.nodes.insert(
             i,
             Node {
                 id: i,
                 hash: query_hashed.clone(),
-                neighbors: vec![vec![]], // Stub for benchmarking
+                neighbors: vec![level0],
             },
         );
     }
     graph.entry_point = Some(0);
+    graph.max_level = 0;
 
     // Benchmark 1: Math pipeline
     c.bench_function("normalize_and_project", |b| {
@@ -90,8 +107,8 @@ pub fn bench_retrieval_latency(c: &mut Criterion) {
 
     // Baseline: General RAG (Naive Flat Exact Search)
     // Computes exact Euclidean distance over all 10,000 dense 384D vectors
-    let mut flat_corpus = Vec::with_capacity(10_000);
-    for _ in 0..10_000 {
+    let mut flat_corpus = Vec::with_capacity(N_NODES as usize);
+    for _ in 0..N_NODES {
         flat_corpus.push(Array1::from_elem(dim, 0.5)); // Dummy dense vector
     }
 
