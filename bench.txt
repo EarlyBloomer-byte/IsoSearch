@@ -48,3 +48,219 @@ Found 14 outliers among 100 measurements (14.00%)
   6 (6.00%) high mild
   8 (8.00%) high severe
 
+
+
+
+Another try this time and running it with verbose
+
+Finished `bench` profile [optimized + debuginfo] target(s) in 113m 10s
+     Running `/home/test23/IsoSearch/target/release/deps/isosearch-668471b779b41e87 --bench`
+     Running `/home/test23/IsoSearch/target/release/deps/isosearch-d07ff5a61451f5b0 --bench`
+
+running 14 tests
+test graph::tests::test_graph_serialization_roundtrip ... ignored
+test graph::tests::test_hamming_distance_consistency ... ignored
+test hashing::tests::test_simhash_length ... ignored
+test hashing::tests::test_simhash_similarity_preservation ... ignored
+test indexing::tests::test_bucket_intersection ... ignored
+test normalization::tests::test_whitening_centering ... ignored
+test normalization::tests::test_whitening_decorrelation ... ignored
+test projection::tests::test_poincare_direction_preservation ... ignored
+test projection::tests::test_poincare_projection_unit_bound ... ignored
+test projection::tests::test_poincare_zero_vector ... ignored
+test projection::tests::test_random_projection_dimensions ... ignored
+test projection::tests::test_random_projection_jl_distance_preservation ... ignored
+test routing::tests::test_empty_router_fails ... ignored
+test routing::tests::test_valid_routing ... ignored
+
+test result: ok. 0 passed; 0 failed; 14 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 1 test
+test tests::test_initialization ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running `/home/test23/IsoSearch/target/release/deps/experiments-795c260269afa695 --bench`
+Benchmarking dimensionality_projection/384D_to_64D
+Benchmarking dimensionality_projection/384D_to_64D: Warming up for 3.0000 s
+Benchmarking dimensionality_projection/384D_to_64D: Collecting 100 samples in estimated 5.0089 s (2.6M iterations)
+Benchmarking dimensionality_projection/384D_to_64D: Analyzing
+dimensionality_projection/384D_to_64D
+                        time:   [1.9167 µs 1.9478 µs 1.9838 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  6 (6.00%) high mild
+  3 (3.00%) high severe
+Benchmarking dimensionality_projection/384D_to_128D
+Benchmarking dimensionality_projection/384D_to_128D: Warming up for 3.0000 s
+Benchmarking dimensionality_projection/384D_to_128D: Collecting 100 samples in estimated 5.0075 s (1.9M iterations)
+Benchmarking dimensionality_projection/384D_to_128D: Analyzing
+dimensionality_projection/384D_to_128D
+                        time:   [2.6019 µs 2.6317 µs 2.6667 µs]
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) high mild
+  5 (5.00%) high severe
+Benchmarking dimensionality_projection/384D_to_256D
+Benchmarking dimensionality_projection/384D_to_256D: Warming up for 3.0000 s
+Benchmarking dimensionality_projection/384D_to_256D: Collecting 100 samples in estimated 5.0193 s (1.1M iterations)
+Benchmarking dimensionality_projection/384D_to_256D: Analyzing
+dimensionality_projection/384D_to_256D
+                        time:   [4.4913 µs 4.5591 µs 4.6321 µs]
+Found 12 outliers among 100 measurements (12.00%)
+  4 (4.00%) high mild
+  8 (8.00%) high severe
+Benchmarking lsh_hashing_and_quantization/64bit_hash
+Benchmarking lsh_hashing_and_quantization/64bit_hash: Warming up for 3.0000 s
+
+Benchmarking lsh_hashing_and_quantization/64bit_hash: Collecting 100 samples in estimated 5.0009 s (5.6M iterations)
+Benchmarking lsh_hashing_and_quantization/64bit_hash: Analyzing
+lsh_hashing_and_quantization/64bit_hash
+                        time:   [860.63 ns 865.42 ns 870.58 ns]
+Found 9 outliers among 100 measurements (9.00%)
+  5 (5.00%) high mild
+  4 (4.00%) high severe
+Benchmarking lsh_hashing_and_quantization/128bit_hash
+Benchmarking lsh_hashing_and_quantization/128bit_hash: Warming up for 3.0000 s
+Benchmarking lsh_hashing_and_quantization/128bit_hash: Collecting 100 samples in estimated 5.0108 s (2.3M iterations)
+Benchmarking lsh_hashing_and_quantization/128bit_hash: Analyzing
+lsh_hashing_and_quantization/128bit_hash
+                        time:   [2.1287 µs 2.1486 µs 2.1714 µs]
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) high mild
+  5 (5.00%) high severe
+Benchmarking lsh_hashing_and_quantization/256bit_hash
+Benchmarking lsh_hashing_and_quantization/256bit_hash: Warming up for 3.0000 s
+Benchmarking lsh_hashing_and_quantization/256bit_hash: Collecting 100 samples in estimated 5.0145 s (1.4M iterations)
+Benchmarking lsh_hashing_and_quantization/256bit_hash: Analyzing
+lsh_hashing_and_quantization/256bit_hash
+                        time:   [3.4225 µs 3.4663 µs 3.5236 µs]
+Found 5 outliers among 100 measurements (5.00%)
+  2 (2.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking distance_computation/bench_euclidean_allocating_baseline
+Benchmarking distance_computation/bench_euclidean_allocating_baseline: Warming up for 3.0000 s
+Benchmarking distance_computation/bench_euclidean_allocating_baseline: Collecting 100 samples in estimated 5.0006 s (32M iterations)
+Benchmarking distance_computation/bench_euclidean_allocating_baseline: Analyzing
+distance_computation/bench_euclidean_allocating_baseline
+                        time:   [145.51 ns 146.79 ns 148.52 ns]
+Found 3 outliers among 100 measurements (3.00%)
+  2 (2.00%) high mild
+  1 (1.00%) high severe
+Benchmarking distance_computation/bench_euclidean_zero_allocation
+Benchmarking distance_computation/bench_euclidean_zero_allocation: Warming up for 3.0000 s
+Benchmarking distance_computation/bench_euclidean_zero_allocation: Collecting 100 samples in estimated 5.0000 s (244B iterations)
+Benchmarking distance_computation/bench_euclidean_zero_allocation: Analyzing
+distance_computation/bench_euclidean_zero_allocation
+                        time:   [19.636 ps 19.729 ps 19.846 ps]
+Found 12 outliers among 100 measurements (12.00%)
+  4 (4.00%) high mild
+  8 (8.00%) high severe
+Benchmarking distance_computation/baseline_hamming_256bit
+Benchmarking distance_computation/baseline_hamming_256bit: Warming up for 3.0000 s
+Benchmarking distance_computation/baseline_hamming_256bit: Collecting 100 samples in estimated 5.0000 s (4.0B iterations)
+Benchmarking distance_computation/baseline_hamming_256bit: Analyzing
+distance_computation/baseline_hamming_256bit
+                        time:   [1.2470 ns 1.2516 ns 1.2572 ns]
+Found 9 outliers among 100 measurements (9.00%)
+  5 (5.00%) high mild
+  4 (4.00%) high severe
+Benchmarking distance_computation/simd_fast_hamming_256bit
+Benchmarking distance_computation/simd_fast_hamming_256bit: Warming up for 3.0000 s
+Benchmarking distance_computation/simd_fast_hamming_256bit: Collecting 100 samples in estimated 5.0000 s (996M iterations)
+Benchmarking distance_computation/simd_fast_hamming_256bit: Analyzing
+distance_computation/simd_fast_hamming_256bit
+                        time:   [4.9815 ns 5.0040 ns 5.0300 ns]
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking concurrency_parallelism/sequential_projection_100x
+Benchmarking concurrency_parallelism/sequential_projection_100x: Warming up for 3.0000 s
+Benchmarking concurrency_parallelism/sequential_projection_100x: Collecting 100 samples in estimated 5.8126 s (20k iterations)
+Benchmarking concurrency_parallelism/sequential_projection_100x: Analyzing
+concurrency_parallelism/sequential_projection_100x
+                        time:   [276.72 µs 279.12 µs 282.06 µs]
+Found 6 outliers among 100 measurements (6.00%)
+  1 (1.00%) high mild
+  5 (5.00%) high severe
+Benchmarking concurrency_parallelism/parallel_projection_100x
+Benchmarking concurrency_parallelism/parallel_projection_100x: Warming up for 3.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 5.2s, enable flat sampling, or reduce sample count to 60.
+Benchmarking concurrency_parallelism/parallel_projection_100x: Collecting 100 samples in estimated 5.2289 s (5050 iterations)
+Benchmarking concurrency_parallelism/parallel_projection_100x: Analyzing
+concurrency_parallelism/parallel_projection_100x
+                        time:   [537.25 µs 789.30 µs 1.0880 ms]
+Found 20 outliers among 100 measurements (20.00%)
+  2 (2.00%) high mild
+  18 (18.00%) high severe
+Benchmarking serialization_persistence/bincode_save_graph
+
+Benchmarking serialization_persistence/bincode_save_graph: Warming up for 3.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 6.4s, enable flat sampling, or reduce sample count to 60.
+Benchmarking serialization_persistence/bincode_save_graph: Collecting 100 samples in estimated 6.3753 s (5050 iterations)
+Benchmarking serialization_persistence/bincode_save_graph: Analyzing
+serialization_persistence/bincode_save_graph
+                        time:   [649.21 µs 792.06 µs 965.72 µs]
+Found 6 outliers among 100 measurements (6.00%)
+  3 (3.00%) high mild
+  3 (3.00%) high severe
+Benchmarking serialization_persistence/bincode_load_graph
+Benchmarking serialization_persistence/bincode_load_graph: Warming up for 3.0000 s
+Benchmarking serialization_persistence/bincode_load_graph: Collecting 100 samples in estimated 5.0192 s (1.1M iterations)
+Benchmarking serialization_persistence/bincode_load_graph: Analyzing
+serialization_persistence/bincode_load_graph
+                        time:   [4.4641 µs 4.4880 µs 4.5159 µs]
+Found 14 outliers among 100 measurements (14.00%)
+  7 (7.00%) high mild
+  7 (7.00%) high severe
+
+     Running `/home/test23/IsoSearch/target/release/deps/retrieval-69e29388db732816 --bench`
+Benchmarking normalize_and_project
+Benchmarking normalize_and_project: Warming up for 3.0000 s
+Benchmarking normalize_and_project: Collecting 100 samples in estimated 5.0064 s (394k iterations)
+Benchmarking normalize_and_project: Analyzing
+normalize_and_project   time:   [12.852 µs 12.997 µs 13.185 µs]
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) high mild
+  5 (5.00%) high severe
+
+Benchmarking hash_and_quantize
+Benchmarking hash_and_quantize: Warming up for 3.0000 s
+Benchmarking hash_and_quantize: Collecting 100 samples in estimated 5.0014 s (6.0M iterations)
+Benchmarking hash_and_quantize: Analyzing
+hash_and_quantize       time:   [824.80 ns 827.15 ns 829.88 ns]
+Found 11 outliers among 100 measurements (11.00%)
+  5 (5.00%) high mild
+  6 (6.00%) high severe
+Benchmarking bucket_intersection
+Benchmarking bucket_intersection: Warming up for 3.0000 s
+
+Benchmarking bucket_intersection: Collecting 100 samples in estimated 5.0057 s (2.6M iterations)
+Benchmarking bucket_intersection: Analyzing
+bucket_intersection     time:   [1.9282 µs 1.9726 µs 2.0336 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  3 (3.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking hnsw_traversal
+Benchmarking hnsw_traversal: Warming up for 3.0000 s
+Benchmarking hnsw_traversal: Collecting 100 samples in estimated 5.0084 s (146k iterations)
+Benchmarking hnsw_traversal: Analyzing
+hnsw_traversal          time:   [33.870 µs 33.978 µs 34.105 µs]
+Found 7 outliers among 100 measurements (7.00%)
+  2 (2.00%) high mild
+  5 (5.00%) high severe
+
+Benchmarking naive_flat_search
+Benchmarking naive_flat_search: Warming up for 3.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 10.0s, enable flat sampling, or reduce sample count to 40.
+Benchmarking naive_flat_search: Collecting 100 samples in estimated 9.9875 s (5050 iterations)
+Benchmarking naive_flat_search: Analyzing
+naive_flat_search       time:   [1.9488 ms 1.9586 ms 1.9689 ms]
+Found 9 outliers among 100 measurements (9.00%)
+  3 (3.00%) high mild
+  6 (6.00%) high severe
