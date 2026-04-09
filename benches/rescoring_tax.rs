@@ -41,7 +41,7 @@ struct BenchContext {
     exact_top_ids: Vec<ID>,
 }
 
-#[derive(Default)]
+#[derive(Clone, Default)]
 struct TimingTotals {
     total_iters: u64,
     candidates_ns: u128,
