@@ -264,3 +264,34 @@ naive_flat_search       time:   [1.9488 ms 1.9586 ms 1.9689 ms]
 Found 9 outliers among 100 measurements (9.00%)
   3 (3.00%) high mild
   6 (6.00%) high severe
+
+
+
+Read [](file:///home/test23/IsoSearch)
+
+Read [](file:///home/test23/IsoSearch/bench-results)
+
+Searched for files matching `IsoSearch` · `**/rescoring_tax.csv`, no matches
+
+Searched for files matching `IsoSearch` · `**/bench-results/**`, no matches
+
+Read [](file:///home/test23/IsoSearch/Cargo.toml)
+
+Generating patch (11 lines) in [](file:///home/test23/IsoSearch/Cargo.toml)
+
+
+```
+
+```
+The “running 0 tests” output means the Criterion main never ran, so the CSV wasn’t written. That happens because `rescoring_tax` wasn’t registered with `harness = false`, so the default test harness ran and found zero tests.
+
+I added the missing bench registration in Cargo.toml. Now the benchmark should execute and emit the CSV.
+
+Try again:
+```bash
+cargo bench --bench rescoring_tax
+```
+
+You should then see:
+- CSV at bench-results/rescoring_tax.csv
+- Criterion output under target/criterion (normal Criterion reports)
