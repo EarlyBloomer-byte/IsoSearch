@@ -67,3 +67,7 @@ harness = false
 [[bench]]
 name = "experiments"
 harness = false
+
+[[bench]]
+name = "rescoring_tax"
+harness = false
